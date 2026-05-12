@@ -99,14 +99,12 @@ Open via the badge below. The first cell of the volatility notebook installs
 A few caveats worth flagging before reading too much into any single number.
 
 - **Single-number kurtosis is a noisy diagnostic for series with
-  concentrated extreme events.** BTAL's reported kurtosis after the May 2026
-  data-cleaning pass is roughly 4 to 5; the cross-asset comparison table
-  flags any value above 20 as a candidate for the per-asset distribution
+  concentrated extreme events.** The cross-asset comparison table flags any
+  excess kurtosis above 20 as a candidate for the per-asset distribution
   plot rather than for taking the kurtosis number at face value. The
-  volatility notebook also prints a top-5 |log_return| days diagnostic for
-  the heaviest-tailed tickers (BTAL, MNA) so a reader can see whether the
-  tails are real-event-driven (e.g. COVID March 2020 for merger-arb) or a
-  vendor data artifact.
+  volatility notebook also includes an opt-in top-5 |log_return| days
+  diagnostic for tickers known to have vendor data artifacts; it is
+  inactive on the default standard-ETF universe.
 - **GARCH(1,1) assumes a single volatility regime.** It cannot separately
   model a calm process and a stressed process. Persistence estimates near
   1.0 should be read as "the volatility process may be non-stationary on
@@ -117,14 +115,13 @@ A few caveats worth flagging before reading too much into any single number.
 - **No transaction costs, slippage, or liquidity premia.** Correlation and
   volatility estimates are pre-cost; any backtested portfolio impact
   derivable from these numbers is gross-of-cost.
-- **Survivorship risk.** The ticker list is fixed at today's set; for
-  delisted LSE-listed funds I substitute US-listed ETFs explicitly chosen
-  for liquid present-day coverage. Earlier-history bias is small but real.
 - **Yahoo data quality is uneven.** The volatility notebook applies a
-  general filter for vol=0 price-change rows (vendor stub artifacts) and
-  one named mask for BTAL on 2015-04-29 (a confirmed bad-print row that the
-  general filter cannot catch because volume is non-zero). Both are
-  documented inline in `fetch_ohlc_data`.
+  general filter for vol=0 price-change rows (vendor stub artifacts) before
+  computing returns. A defensive named-row mask in `fetch_ohlc_data` covers
+  one historical Yahoo flash-print on BTAL (2015-04-29) that the general
+  filter cannot catch because volume on that row is non-zero. The mask is
+  inactive on the default universe and stays in the code as a worked
+  example of how to address a similar issue if it surfaces elsewhere.
 
 ## Development
 
