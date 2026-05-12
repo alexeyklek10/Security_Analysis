@@ -20,7 +20,7 @@ from scipy import stats as sps
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  F03 — Lo-MacKinlay variance-ratio test, overlapping SE
+#  Lo-MacKinlay variance-ratio test, overlapping SE
 # ════════════════════════════════════════════════════════════════════════════
 
 def _vr_test(returns: np.ndarray, lag: int):
@@ -66,7 +66,7 @@ def test_vr_mean_reverting_below_one():
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  F04 — arch.arch_model GARCH(1,1) wraps + per-asset MLE
+#  arch.arch_model GARCH(1,1) wraps + per-asset MLE
 # ════════════════════════════════════════════════════════════════════════════
 
 def test_garch_recovers_persistence_on_simulated_series():
@@ -96,7 +96,7 @@ def test_garch_recovers_persistence_on_simulated_series():
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  F05 — Anis-Lloyd bias-corrected Hurst on Gaussian noise → ~0.5
+#  Anis-Lloyd bias-corrected Hurst on Gaussian noise → ~0.5
 # ════════════════════════════════════════════════════════════════════════════
 
 def _expected_rs(n: int) -> float:
@@ -213,7 +213,7 @@ def test_yang_zhang_finite_and_positive_on_gbm():
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  F09 — Mantegna distance is a valid ultrametric
+#  Mantegna distance is a valid ultrametric
 # ════════════════════════════════════════════════════════════════════════════
 
 def test_mantegna_distance_bounds():
@@ -227,7 +227,7 @@ def test_mantegna_distance_bounds():
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  Equicorrelated recovery — F11+F14 variance decomposition
+#  Equicorrelated recovery —  variance decomposition
 # ════════════════════════════════════════════════════════════════════════════
 
 def test_variance_decomp_equicorrelated():

@@ -7,10 +7,12 @@ __pycache__/
 # Data caches (regenerated on first run)
 data/cache/
 
-# Working scratch files (extracted notebook source)
+# Working scratch files (extracted notebook source, throwaway helpers)
 _*_work.py
 _gate_*.py
 _fix_*.py
+_strip_*.py
+_split_*.py
 
 # Editor / OS
 .vscode/
