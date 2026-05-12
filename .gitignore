@@ -1,0 +1,22 @@
+# Python venv + bytecode
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Data caches (regenerated on first run)
+data/cache/
+
+# Working scratch files (extracted notebook source)
+_*_work.py
+_gate_*.py
+_fix_*.py
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Stale partial outputs at repo root (notebooks live in notebooks/)
+/*.ipynb
